@@ -1,20 +1,41 @@
-const person = {
-    name: "Kai",
-    age: 28
+type Person = {
+    name: string,
+    age: number,
+    isProgrammer?: boolean,
+    friends: string[],
+    address: {
+        street: string
+    }
 }
 
-// person.isProgrammer = true // this won't work bec it is not defined
+type ThisIsANumberType = number
 
-const person: { name: string; age: number, isProgrammer: boolean } = {
+const person1: Person = {
     name: "Kai",
-    age: 28
+    age: 28,
+    friends: [],
+    address: {
+        street: "sesame"
+    }
 }
 
-// ^ This is now throwing an error bec isProgammer is not defined
+const a: ThisIsANumberType = 3 // this works too
 
-const person: { name: string; age: number, isProgrammer?: boolean } = {
-    name: "Kai",
-    age: 28
+interface PersonInterface {
+    name: string,
+    age: number,
+    isProgrammer?: boolean,
+    friends: string[],
+    address: {
+        street: string
+    }
 }
 
-// add "?" at the end of the property to tell TS it is only optional
+const person2: PersonInterface = {
+    name: "Kai",
+    age: 28,
+    friends: [],
+    address: {
+        street: "sesame"
+    }
+}
