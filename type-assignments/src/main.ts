@@ -1,12 +1,7 @@
-let a: number = 4;
-let b: string = "asdf";
-let c: number;
+const a = [1, 2, 3] // number array is inferred
+let b: number[] = []
+const d: Date[] = [new Date()]
 
-a = 5
-// b = 1 //throws an error
-b = 'this will work'
-c = 10
-
-console.log(a)
-console.log(b)
-console.log(c)
+b = [4, 5, 6]
+// b.push("this will not work") // TypeScript is smart enough to detect this
+b.push(7)
