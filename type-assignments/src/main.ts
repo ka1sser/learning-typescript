@@ -1,7 +1,6 @@
-const a = [1, 2, 3] // number array is inferred
-let b: number[] = []
-const d: Date[] = [new Date()]
+let a: any = 4
 
-b = [4, 5, 6]
-// b.push("this will not work") // TypeScript is smart enough to detect this
-b.push(7)
+a = 3
+a = "asdf"
+
+// DO NOT USE ANY
