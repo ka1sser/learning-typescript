@@ -1,41 +1,19 @@
-type Person = {
-    name: string,
-    age: number,
-    isProgrammer?: boolean,
-    friends: string[],
-    address: {
-        street: string
-    }
+function printName(name: string, name2:string) {
+    console.log(name, name2)
 }
 
-type ThisIsANumberType = number
-
-const person1: Person = {
-    name: "Kai",
-    age: 28,
-    friends: [],
-    address: {
-        street: "sesame"
-    }
+function sum(a: number, b: number): number {
+    return a+b
 }
 
-const a: ThisIsANumberType = 3 // this works too
+const c = sum(1, 2)
 
-interface PersonInterface {
-    name: string,
-    age: number,
-    isProgrammer?: boolean,
-    friends: string[],
-    address: {
-        street: string
-    }
+function printPerson(person: {name: string}) {
+    console.log(person.name)
 }
 
-const person2: PersonInterface = {
-    name: "Kai",
-    age: 28,
-    friends: [],
-    address: {
-        street: "sesame"
-    }
-}
+printPerson({ name: "Kai" })
+printPerson({ name: "Edward Elric", age: 19 }) // this will not work BUT
+
+const person = { name: "Edward Elric", age: 19 }
+printPerson(person) // this will work
