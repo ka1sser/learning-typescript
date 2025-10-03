@@ -1,5 +1,16 @@
-function printNameAndAge(name: string, age?: number) {
-    console.log(name, age)
+type Options = {
+    debugMode?: boolean
+    indentLevel?: number
 }
 
-printNameAndAge("sdf", 28)
+function printNameAndAge(name: string, { debugMode = false, indentLevel}: Options = {}) {
+    console.log(name, debugMode, indentLevel)
+}
+
+printNameAndAge("sdf")
+
+function sum(...nums: number[]) {
+    return // code to add them
+}
+
+sum(1,2,4)
