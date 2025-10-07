@@ -1,27 +1,12 @@
-let id: number | string | boolean = 1
-id = "11"
-id = true
-
-type Todo = {
-  id: number | string
-  status: "Complete" | "Incomplete" | "Draft"
+type Person = {
+  name: string
+  age: number
 }
 
-const todo: Todo = {
-  name: "Laundry",
-  status: "Completed"
-}
+type PersonWithId = Person & { id: number }
 
-type Adopt = {
-  status: string
-}
-
-type Animal = {
-  isDog?: boolean
-  isCat?: boolean
-}
-
-let cat1: Adopt | Animal = {
-  status: "Available",
-  isCat: true
+const person: PersonWithId = {
+  name: "Kai",
+  age: 28,
+  id: 1
 }
