@@ -1,15 +1,40 @@
-const person = {
+type Person = {
+  name: string,
+  skillLevel: "Beginner" | "Intermediate" | "Expert"
+}
+
+function printSkillLevel(skillLevel: Person["skillLevel"]) {
+  console.log(skillLevel)
+}
+
+const person: Person = {
+  name: "Kai",
+  skillLevel: "Expert"
+}
+
+printSkillLevel(person.skillLevel)
+
+type PeopleGroupedBySkillLevel = {
+  [index in Person["skillLevel"]]: Person[]
+}
+
+const a: PeopleGroupedBySkillLevel = {
+  "Beginner": [
+    {name: "Alphonse", skillLevel: "Beginner"}
+  ],
+  "Intermediate": [
+    {name: "Ling", skillLevel: "Intermediate"}
+  ],
+  "Expert": [
+    {name: "Edward", skillLevel:"Expert"}
+  ]
+}
+ 
+const b = {
   name: "Kai",
   age: 28
 }
 
-// const people: { name: string, age: number }[] = [] // too hassle to write and modify if there will be more changes
-const people: (typeof person)[] = [] // easier to change-- only one variable to modify if needed
-
-people.push(person)
-
-function sayHi(name: string) {
-  console.log(name)
-}
-
-type FuncType = typeof sayHi // returns the return type of the function
+// type B = (typeof b)["name"] // B has string type
+// type B = (typeof b)["age"] // B has number type
+type B = (typeof b)[keyof typeof b] // B has string | number type
